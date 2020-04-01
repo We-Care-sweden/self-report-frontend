@@ -22,23 +22,27 @@
             <p>{{ $t('visualize.dataWarning') }}</p>
 
             <base-input addon-left-icon="ni ni-calendar-grid-58">
-              <flat-picker v-if="dataLoaded"
-                           slot-scope="{focus, blur}"
-                           @on-open="focus"
-                           @on-close="blur"
-                           @on-change="buildLayers"
-                           :config="datePickerFormat"
-                           class="form-control datepicker"
-                           v-model="dateFilter">
+              <flat-picker
+                v-if="dataLoaded"
+                slot-scope="{focus, blur}"
+                @on-open="focus"
+                @on-close="blur"
+                @on-change="buildLayers"
+                :config="datePickerFormat"
+                class="form-control datepicker"
+                v-model="dateFilter"
+              >
               </flat-picker>
             </base-input>
 
-            <base-button v-for="(layerDefinition) in layersDefinifion" :key="layerDefinition.id"
-                         class="mb-3"
-                         size="sm"
-                         :type="layerDefinition.buttonColor"
-                         :icon="`fa fa-${layerEnabled(layerDefinition) ? 'check-square' : 'square-o'}`"
-                         @click="toggleLayer(layerDefinition)">
+            <base-button
+              v-for="(layerDefinition) in layersDefinifion" :key="layerDefinition.id"
+              class="mb-3"
+              size="sm"
+              :type="layerDefinition.buttonColor"
+              :icon="`fa fa-${layerEnabled(layerDefinition) ? 'check-square' : 'square-o'}`"
+              @click="toggleLayer(layerDefinition)"
+            >
               <span>{{ $t(layerDefinition.label) }}</span>
             </base-button>
 
@@ -56,23 +60,23 @@
 </template>
 
 <script>
-  import L from 'leaflet';
-  import 'leaflet/dist/leaflet.css';
+  import L from 'leaflet'
+  import 'leaflet/dist/leaflet.css'
 
-  import * as Papa from 'papaparse';
+  import * as Papa from 'papaparse'
 
-  import flatPicker from 'vue-flatpickr-component';
-  import 'flatpickr/dist/flatpickr.css';
+  import flatPicker from 'vue-flatpickr-component'
+  import 'flatpickr/dist/flatpickr.css'
 
-  var _map = null;
-  var _data = [];
-  var _tileLayers = [];
+  var _map = null
+  var _data = []
+  var _tileLayers = []
 
-  var _today = new Date();
+  var _today = new Date()
 
   export default {
-    name: "visualize",
-    components: {flatPicker},
+    name: 'visualize',
+    components: { flatPicker },
     data() {
       return {
         dataLoaded: false,
@@ -165,101 +169,103 @@
             defaultEnabled: false,
           },
         ],
-      };
+      }
     },
     async mounted() {
 
       try {
-        this.geocoding = await this.loadGeocode(this.geocodeFileUrl);
+        this.geocoding = await this.loadGeocode(this.geocodeFileUrl)
       } catch (error) {
-        this.error = error;
+        this.error = error
       }
 
       try {
-        await this.loadLeaflet();
+        await this.loadLeaflet()
       } catch (error) {
-        this.error = error;
+        this.error = error
       }
 
       try {
-        const lu = await this.loadLastUpdate(this.lastUpdateFileUrl);
-        this.lastUpdate = new Date(Object.keys(lu[0])[0]);
+        const lu = await this.loadLastUpdate(this.lastUpdateFileUrl)
+        this.lastUpdate = new Date(Object.keys(lu[0])[0])
       } catch (error) {
 
       }
     },
     computed: {
       dataSourceUrl() {
-        return this.showMerged ? `${this.dataSourceBaseUrl}/merge-all-days.csv` : `${this.dataSourceBaseUrl}/daily-reports/ch-covid-19-${this.dateFilter}.csv`;
+        return this.showMerged ?
+          `${this.dataSourceBaseUrl}/merge-all-days.csv` :
+          `${this.dataSourceBaseUrl}/daily-reports/ch-covid-19-${this.dateFilter}.csv`
       },
     },
     methods: {
       isDateAllowed: function (date) {
-        return this.allowedDates.includes(date);
+        return this.allowedDates.includes(date)
       },
       layerEnabled: function (layerDefinition) {
-        return this.activeLayers.includes(layerDefinition);
+        return this.activeLayers.includes(layerDefinition)
       },
       toggleLayer: function (layerDefinition) {
         if (this.layerEnabled(layerDefinition)) {
-          this.removeLayer(layerDefinition);
+          this.removeLayer(layerDefinition)
         } else {
-          this.addLayer(layerDefinition);
+          this.addLayer(layerDefinition)
         }
       },
       addLayer: function (layerDefinition) {
-        layerDefinition.data.layer.addTo(_map);
-        this.activeLayers.push(layerDefinition);
+        layerDefinition.data.layer.addTo(_map)
+        this.activeLayers.push(layerDefinition)
       },
       removeLayer: function (layerDefinition) {
-        _map.removeLayer(layerDefinition.data.layer);
-        this.activeLayers = this.activeLayers.filter((layer) => layer !== layerDefinition);
+        _map.removeLayer(layerDefinition.data.layer)
+        this.activeLayers = this.activeLayers.filter((layer) => layer !== layerDefinition)
       },
       loadGeocode: function (url) {
         return new Promise(function (resolve, reject) {
-          console.log(`Getting geocoding data at '${url}'`);
+          console.log(`Getting geocoding data at '${url}'`)
           Papa.parse(url, {
             download: true,
             header: true,
             error: (err, file, inputElem, reason) => reject(`Could not get geo-coding data<br>${err}`),
             complete: (content, file) => {
 
-              const geocoding = {};
+              const geocoding = {}
 
               for (const location of content.data) {
 
                 if (location.postal_code === null) {
-                  continue;
+                  continue
                 }
 
                 if (location.longitude && location.latitude) {
-                  location.coordinates = [+location.latitude, +location.longitude];
+                  location.coordinates = [+location.latitude, +location.longitude]
                 } else {
-                  continue;
+                  continue
                 }
 
                 if (location.region_id) {
-                  const regions = location.region_id.split('::');
+                  const regions = location.region_id.split('::')
 
-                  location.regions = [];
-                  location.places = [];
+                  location.regions = []
+                  location.places = []
                   for (const [i, region] of regions.entries()) {
 
                     if (i === regions.length - 1) {
-                      location.places = region.split('||');
+                      location.places = region.split('||')
                     } else {
-                      location.regions.push(region);
+                      location.regions.push(region)
                     }
                   }
                 }
 
-                geocoding[location.postal_code] = location;
+                geocoding[location.postal_code] = location
               }
 
               resolve(geocoding)
             },
-          });
-        });
+          })
+        })
       },
       loadData: async function (dataFileUrl) {
         return new Promise(function (resolve, reject) {
@@ -269,21 +275,21 @@
             error: (err, file, inputElem, reason) => reject(`Could not get map data<br>${err}`),
             complete: (content, file) => {
 
-              const data = content.data;
+              const data = content.data
 
               for (const entry of data) {
-                entry.healthy = +entry.healthy;
-                entry.sick_guess_no_corona = +entry.sick_guess_no_corona;
-                entry.sick_guess_corona = +entry.sick_guess_corona;
-                entry.sick_corona_confirmed = +entry.sick_corona_confirmed;
-                entry.recovered_not_confirmed = +entry.recovered_not_confirmed;
-                entry.recovered_confirmed = +entry.recovered_confirmed;
+                entry.healthy = +entry.total_healthy
+                entry.sick_guess_no_corona = +entry.total_sick_guess_no_corona
+                entry.sick_guess_corona = +entry.total_sick_guess_corona
+                entry.sick_corona_confirmed = +entry.total_sick_corona_confirmed
+                entry.recovered_not_confirmed = +entry.total_recovered_not_confirmed
+                entry.recovered_confirmed = +entry.total_recovered_confirmed
               }
 
-              resolve(data);
-            }
-          });
-        });
+              resolve(data)
+            },
+          })
+        })
       },
       loadLastUpdate: async function (lastUpdateFileUrl) {
         return new Promise(function (resolve, reject) {
@@ -292,19 +298,19 @@
             header: true,
             error: (err, file, inputElem, reason) => reject(`Could not get map data<br>${err}`),
             complete: (content, file) => resolve(content.data),
-          });
-        });
+          })
+        })
       },
       computeAllowedDates: function (data) {
-        const flags = {};
-        const allowedDates = [];
+        const flags = {}
+        const allowedDates = []
         for (const entry of data) {
           if (entry.date !== '' && !flags[entry.date]) {
-            flags[entry.date] = true;
-            allowedDates.push(entry.date);
+            flags[entry.date] = true
+            allowedDates.push(entry.date)
           }
         }
-        return allowedDates;
+        return allowedDates
       },
       loadLeaflet: async function () {
 
@@ -312,42 +318,42 @@
           preferCanvas: true,
         }).setView([
           process.env.VUE_APP_VISU_MAP_CENTER_LATITUDE,
-          process.env.VUE_APP_VISU_MAP_CENTER_LONGITUDE
-        ], process.env.VUE_APP_VISU_MAP_ZOOM_LEVEL);
+          process.env.VUE_APP_VISU_MAP_CENTER_LONGITUDE,
+        ], process.env.VUE_APP_VISU_MAP_ZOOM_LEVEL)
 
         _tileLayers.push(L.tileLayer(this.mapBaseLayerUrl, {
           attribution: `&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors`,
-        }).addTo(_map));
+        }).addTo(_map))
 
-        _data = await this.loadData(this.dataSourceUrl);
-        this.dataLoaded = true;
+        _data = await this.loadData(this.dataSourceUrl)
+        this.dataLoaded = true
 
-        this.allowedDates = this.computeAllowedDates(_data);
+        this.allowedDates = this.computeAllowedDates(_data)
 
-        this.buildLayers(null, this.dateFilter);
+        this.buildLayers(null, this.dateFilter)
       },
       buildLayers: function (selectedDates, dateStr, instance) {
 
-        const activeLayersBackup = this.activeLayers.map(layerDefinition => layerDefinition.id);
+        const activeLayersBackup = this.activeLayers.map(layerDefinition => layerDefinition.id)
 
         for (const layerDefinition of this.activeLayers) {
-          _map.removeLayer(layerDefinition.data.layer);
+          _map.removeLayer(layerDefinition.data.layer)
         }
 
-        let allLayersMax = 0;
+        let allLayersMax = 0
 
         for (const layerDefinition of this.layersDefinifion) {
           layerDefinition.data = {
             max: 0,
             markers: [],
-          };
+          }
         }
 
-        let totalReports = 0;
+        let totalReports = 0
         for (const entry of _data) {
 
           if (entry.date !== dateStr) {
-            continue;
+            continue
           }
 
           totalReports += entry.healthy +
@@ -355,60 +361,61 @@
             entry.sick_guess_corona +
             entry.sick_corona_confirmed +
             entry.recovered_not_confirmed +
-            entry.recovered_confirmed;
+            entry.recovered_confirmed
 
           for (const layerDefinition of this.layersDefinifion) {
-            const markerSize = layerDefinition.value(entry) * layerDefinition.sizeRatio;
+            const markerSize = layerDefinition.value(entry) * layerDefinition.sizeRatio
             if (markerSize > layerDefinition.data.max) {
-              layerDefinition.data.max = markerSize;
+              layerDefinition.data.max = markerSize
 
               if (layerDefinition.data.max > allLayersMax) {
-                allLayersMax = layerDefinition.data.max;
+                allLayersMax = layerDefinition.data.max
               }
             }
           }
         }
 
-        this.totalReports = totalReports;
+        this.totalReports = totalReports
 
-        let ignored = 0;
+        let ignored = 0
         for (const entry of _data) {
 
           if (entry.date !== dateStr) {
-            continue;
+            continue
           }
 
-          const geocoding = this.geocoding[entry.postal_code];
+          const geocoding = this.geocoding[entry.npa_plz]
 
           if (!geocoding) {
-            ignored++;
-            continue;
+            ignored++
+            continue
           }
+          console.log(entry)
 
-          let popup = ``;
-          const places = geocoding.places.filter(p => isNaN(p));
+          let popup = ``
+          const places = geocoding.places.filter(p => isNaN(p))
           switch (places.length) {
             case 0:
-              popup += `<h4>${entry.postal_code}</h4>`;
-              break;
+              popup += `<h4>${entry.npa_plz}</h4>`
+              break
 
             case 1:
-              popup += `<h4>${entry.postal_code} ${places[0]}</h4>`;
-              break;
+              popup += `<h4>${entry.npa_plz} ${places[0]}</h4>`
+              break
 
             default:
-              popup += `<h4>${entry.postal_code}</h4>`;
-              popup += `<ul>`;
+              popup += `<h4>${entry.npa_plz}</h4>`
+              popup += `<ul>`
               for (const place of places) {
-                popup += `<li><b>${place}</b></li>`;
+                popup += `<li><b>${place}</b></li>`
               }
-              popup += `</li>`;
-              break;
+              popup += `</li>`
+              break
           }
 
           popup += `
             <p></p>
-            <table class="data">`;
+            <table class="data">`
 
           for (const layerDefinition of this.layersDefinifion) {
             popup += `
@@ -416,55 +423,55 @@
                 <td style="color: ${layerDefinition.color}">${layerDefinition.value(entry)}</td>
                 <td>${this.$i18n.t(layerDefinition.label)}</td>
               </tr>
-            `;
+            `
           }
 
           popup += `</table>
-          `;
+          `
 
           for (const layerDefinition of this.layersDefinifion) {
             try {
-              let markerSize = layerDefinition.value(entry) * layerDefinition.sizeRatio;
+              let markerSize = layerDefinition.value(entry) * layerDefinition.sizeRatio
               // markerSize = markerSize / allLayersMax * this.maxBubbleSize;
-              markerSize = markerSize / layerDefinition.data.max * this.maxBubbleSize;
+              markerSize = markerSize / layerDefinition.data.max * this.maxBubbleSize
 
               layerDefinition.data.markers.push(L.circle(geocoding.coordinates, {
                 weight: 0,
                 fillColor: layerDefinition.color,
                 fillOpacity: layerDefinition.opacity,
                 radius: markerSize > 0 ? Math.max(markerSize, this.minBubbleSize) : 0,
-              }).bindPopup(popup));
+              }).bindPopup(popup))
             } catch (error) {
-              console.error(entry, error);
+              console.error(entry, error)
             }
           }
         }
 
         const options = {
           attribution: `<a href="${this.dataSourceUrl}" target="_blank">Data source</a>`,
-        };
+        }
 
-        const overlays = {};
+        const overlays = {}
         for (const layerDefinition of this.layersDefinifion) {
 
-          layerDefinition.data.layer = L.layerGroup(layerDefinition.data.markers, options);
+          layerDefinition.data.layer = L.layerGroup(layerDefinition.data.markers, options)
 
           if (activeLayersBackup.length > 0) {
             if (activeLayersBackup.includes(layerDefinition.id)) {
-              this.addLayer(layerDefinition);
+              this.addLayer(layerDefinition)
             }
           } else {
             if (layerDefinition.defaultEnabled) {
-              this.addLayer(layerDefinition);
+              this.addLayer(layerDefinition)
             }
           }
 
-          const label = `<span style="color: ${layerDefinition.color}">${this.$i18n.t(layerDefinition.label)}</span>`;
-          overlays[label] = layerDefinition.data.layer;
+          const label = `<span style="color: ${layerDefinition.color}">${this.$i18n.t(layerDefinition.label)}</span>`
+          overlays[label] = layerDefinition.data.layer
         }
       },
-    }
-  };
+    },
+  }
 
 </script>
 
