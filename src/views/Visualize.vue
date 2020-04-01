@@ -390,7 +390,6 @@
             ignored++
             continue
           }
-          console.log(entry)
 
           let popup = ``
           const places = geocoding.places.filter(p => isNaN(p))
