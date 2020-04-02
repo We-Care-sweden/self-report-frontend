@@ -20,7 +20,7 @@
     },
     "report": {
         "title": "Report",
-        "intro": "Help fighting against the new Coronavirus in Switzerland by self-reporting your health status.",
+        "intro": "Help fighting against the new Coronavirus in Sweden by self-reporting your health status.",
         "how": "How are you doing?",
         "healthy": "I'm healthy",
         "sick": "I'm sick",
@@ -48,7 +48,7 @@
         "contractedOfficialConfirmText": "Have you been officially tested positive to Covid-19 by a recognized medical institution?",
         "locationQuestion": "Where do you live?",
         "locationPlaceholder": "Postal code",
-        "locationValidError": "Please enter a valid Swiss postal number",
+        "locationValidError": "Please enter a valid swedish postal number",
         "send": "Send",
         "error": "Error",
         "errorDetails": "An error occurred when sending your data",
@@ -72,7 +72,7 @@
     },
     "about": {
         "title": "About us",
-        "headWho": "We are a team of swiss developers",
+        "headWho": "We are a team of swedish developers",
         "who": "that want to help to evaluate the current situation of the COVID-19 pandemic in our country.",
         "headNeedYou": "We need you!",
         "needYou": "Our app is based on your self-reporting... so it is important that you update your health status in case of change.",
