@@ -17,6 +17,9 @@
             <p><span class="headline">{{ $t('about.headPublicData') }}</span> {{ $t('about.publicData') }}</p>
             <p><span class="headline">{{ $t('about.headDataCare') }}</span> {{ $t('about.dataCare') }}</p>
             <p><span class="headline">{{ $t('about.headImprovement') }}</span> {{ $t('about.improvement') }}</p>
+            <p><span class="headline">{{ $t('about.headImprovement') }}</span> {{ $t('about.improvement') }}</p>
+            <p>{{ $t('about.source1') }} <a href="https://github.com/ch-covid-19" about="_blank">{{$t('about.link')}}</a>
+              {{ $t('about.source2') }} </p>
           </div>
         </div>
       </section>
@@ -27,9 +30,9 @@
 <script>
 
   export default {
-    name: "about",
+    name: 'about',
     components: {},
-  };
+  }
 
 </script>
 

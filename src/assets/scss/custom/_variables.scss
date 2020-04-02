@@ -213,9 +213,9 @@ $section-colors: map-merge((
 
 // Links
 
-$link-color: $primary !default;
+$link-color: $success !default;
 $link-decoration: none !default;
-$link-hover-color: darken($link-color, 15%);
+$link-hover-color: lighten($link-color, 15%);
 $link-hover-decoration: none !default;
 
 // Grid breakpoints
