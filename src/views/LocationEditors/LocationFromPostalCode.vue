@@ -29,7 +29,7 @@
         this.$emit('update:location', value);
       },
       isValid(value) {
-        return value.length === 4 && !isNaN(value);
+        return value.length === 5 && !isNaN(value);
       },
     },
     watch: {
