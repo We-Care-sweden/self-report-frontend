@@ -85,9 +85,9 @@
     "headDataCare": "By the way,",
     "dataCare": " keep in mind that our dataset is based on self-reporting from the community, thus the data is not official and could contains errors. The data is only intended to be used as an indicator.",
     "headImprovement": "If you have any suggestions",
-    "improvement": "for improvements or you want to report an error, please contact us on Facebook (covidmap-sweden).",
+    "improvement": "for improvements or you want to report an error, please contact us via email:",
     "supportHeader": "Want to support?",
-    "support": "Any help (resources, developers, outreach, language, etc.) is more than welcome. You can reach us at",
+    "support": "Any help (resources, developers, outreach, language, etc.) is more than welcome.",
     "source1": "This webapp is based on open source",
     "link": "Swiss implementation",
     "source2": ", which is updated to the statistics of Sweden."
