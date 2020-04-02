@@ -354,7 +354,7 @@
           await this.$recaptchaLoaded();
 
           // Execute reCAPTCHA with action "report".
-          const token = await this.$recaptcha('report');
+          // const token = await this.$recaptcha('report');
 
           const headers = new Headers();
           headers.append("Content-Type", "application/json");
@@ -365,7 +365,7 @@
             mode: 'cors',
             cache: 'default',
             body: JSON.stringify({
-              token: token,
+              token: 'fake',
               locator: this.reportData.postalCode,
               sessionId: this.reportData.sessionId,
               symptoms: symptoms,
