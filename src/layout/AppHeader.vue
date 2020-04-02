@@ -44,7 +44,7 @@
 
       <ul class="navbar-nav align-items-lg-center ml-lg-auto">
 
-        <base-dropdown tag="li" class="nav-item">
+        <base-dropdown tag="li" class="nav-item" v-if="languages.length > 1">
           <a slot="title" href="#" class="nav-link" data-toggle="dropdown" role="button">
             <i class="ni ni-bold-down"></i>
             <span class="nav-link-inner--text">Language</span>
