@@ -4,7 +4,7 @@
       <base-alert v-if="error !== null" type="success" :dismissible="true" style="width:60vw">
         <h6>
           Join
-          <strong>3.6K</strong> who self-reported their COVID status and help fighting against the new Coronavirus in Sweden.
+          <strong>{{recordCounts !== 0 ? recordCounts:'' }}</strong> who self-reported their COVID status and help fighting against the new Coronavirus in Sweden.
         </h6>
         <h6>
           Thank you for visiting covidmap.se. We are in the test phase and appreciate your comments and suggestions. Please write
@@ -29,8 +29,27 @@
 import { FadeTransition } from "vue2-transitions";
 
 export default {
+  data() {
+    return {
+      recordCounts: 0
+    };
+  },
   components: {
     FadeTransition
+  },
+  mounted() {
+    this.getRecordCount().then();
+  },
+  methods: {
+    getRecordCount: function() {
+      return fetch(process.env.VUE_APP_API_COUNT_REPORT)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            this.recordCounts = data.count;
+          }
+        });
+    }
   }
 };
 </script>

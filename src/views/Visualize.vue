@@ -190,7 +190,7 @@ export default {
   computed: {
     dataSourceUrl() {
       return this.showMerged
-        ? `${this.dataSourceBaseUrl}/merge-all-days2.csv`
+        ? `${this.dataSourceBaseUrl}/merge-all-days3.csv`
         : `${this.dataSourceBaseUrl}/daily-reports/ch-covid-19-${this.dateFilter}.csv`
     },
   },

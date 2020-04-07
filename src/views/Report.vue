@@ -186,6 +186,39 @@
 
             <div class="row mt-3" v-show="reportData.sick !== null">
               <div class="col-lg-6">
+                <h3 class="text-white">{{ $t('report.sexHeading') }}</h3>
+
+                <base-button
+                  class="mt-2"
+                  :type="reportData.sex === 'male' && 'info' "
+                  @click="reportData.sex = 'male'"
+                >
+                  <span>Male</span>
+                </base-button>
+                <base-button
+                  class="mt-2"
+                  :type="reportData.sex === 'female' && 'info'"
+                  @click="reportData.sex = 'female'"
+                >
+                  <span>Female</span>
+                </base-button>
+              </div>
+            </div>
+
+            <div class="row mt-3" v-show="reportData.sick !== null">
+              <div class="col-lg-6">
+                <h3 class="text-white">{{ $t('report.ageHeading') }}</h3>
+                <base-input
+                  :value="reportData.age"
+                  @input="ageChanged"
+                  type="number"
+                  :placeholder="$t('report.agePlaceholder')"
+                ></base-input>
+              </div>
+            </div>
+
+            <div class="row mt-3" v-show="reportData.sick !== null">
+              <div class="col-lg-6">
                 <h3 class="text-white">{{ $t('report.locationQuestion') }}</h3>
 
                 <location-from-address
@@ -339,6 +372,8 @@ export default {
         symptoms: [],
         diagnostic: null,
         postalCode: null,
+        age: null,
+        sex: null,
         lastReport: null
       },
       sending: false
@@ -383,7 +418,7 @@ export default {
       try {
         this.reportData.lastReport = new Date();
 
-        await this.$recaptchaLoaded();
+        // await this.$recaptchaLoaded();
 
         // Execute reCAPTCHA with action "report".
         // const token = await this.$recaptcha('report');
@@ -402,6 +437,8 @@ export default {
             sessionId: this.reportData.sessionId,
             symptoms: symptoms,
             diagnostic: this.reportData.diagnostic,
+            age: this.reportData.age,
+            sex: this.reportData.sex,
             timestamp: this.reportData.lastReport,
             appVersion: process.env.VERSION
           })
@@ -441,6 +478,9 @@ export default {
           );
         }
       }
+    },
+    ageChanged: function(value) {
+      this.reportData.age = value;
     },
     resetData: function() {
       this.reportData = {
