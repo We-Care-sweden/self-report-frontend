@@ -193,14 +193,21 @@
                   :type="reportData.sex === 'male' && 'info' "
                   @click="reportData.sex = 'male'"
                 >
-                  <span>Male</span>
+                  <span>{{$t('report.male')}}</span>
                 </base-button>
                 <base-button
                   class="mt-2"
                   :type="reportData.sex === 'female' && 'info'"
                   @click="reportData.sex = 'female'"
                 >
-                  <span>Female</span>
+                  <span>{{$t('report.female')}}</span>
+                </base-button>
+                <base-button
+                  class="mt-2"
+                  :type="reportData.sex === 'other' && 'info'"
+                  @click="reportData.sex = 'other'"
+                >
+                  <span>{{$t('report.other')}}</span>
                 </base-button>
               </div>
             </div>

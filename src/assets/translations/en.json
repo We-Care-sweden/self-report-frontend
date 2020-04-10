@@ -8,7 +8,12 @@
     },
     "yes": "Yes",
     "no": "No",
-    "language": "English"
+    "language": "English",
+    "alert": {
+      "sub1": "Join",
+      "sub2": "who self-reported their Covid-19 status.",
+      "sub3": "We are currently in an early test phase. You can report your comments and suggestions in ..."
+    }
   },
   "renewReport": {
     "comingBack": "Thanks for coming back",
@@ -20,7 +25,7 @@
   },
   "report": {
     "title": "Report",
-    "intro": "Help fighting against the new Coronavirus in Sweden by self-reporting your health status. This website visualizes the progression of the Covid-19 pandemic in our country by self-report risk maps.",
+    "intro": "Help the fight against the new Coronavirus in Sweden by self-reporting your health status. This website visualizes the progression of the Covid-19 pandemic in our country using risk maps generated with help of your self-reported data.",
     "how": "How are you doing?",
     "healthy": "I'm healthy",
     "sick": "I'm sick",
@@ -62,7 +67,9 @@
     "sentSomeoneElse": "If you want to file a report for someone else, please use another phone, tablet or computer.",
     "sentMistake": "You've made a mistake ? You can correct it : ",
     "sexHeading": "Your sex",
-    "male": "click here",
+    "male": "Male",
+    "female": "Female",
+    "other": "Other",
     "sentMistakeClickHere": "click here"
   },
   "visualize": {
@@ -82,8 +89,8 @@
     "who": "from KTH Royal Institute of Technology, Stockholm University, and Mid Sweden University that want to help the current situation of the COVID-19 pandemic in our country, Sweden.",
     "headNeedYou": "We need you!",
     "needYou": "Our webapp is based on your self-reporting... so it is important that you update your health status in case of change. Just use the same brower whenever you want to report a development of your symptoms or COVID status.",
-    "headData": "We do not save any personal information in our servers!",
-    "data": "Every data is anonymous but to keep our dataset consistent, we need that you always use the same browser to update your status (otherwise you will be counted twice).",
+    "headData": "We do not save any personal information on our servers!",
+    "data": "All data is anonymous but to keep our dataset consistent, we require that you always use the same browser to update your status (otherwise you will be counted twice).",
     "headDataUpdate": "Realtime risk map to safely walk through the city.",
     "dataUpdate": " are working on that as hard as we can and hopefully would release it as soon as possible. But due to the lack of sponsors, we are slower than what we would love to be.",
     "headPublicData": "For other developers,",
@@ -101,8 +108,8 @@
   "faq": {
     "title": "FAQ",
     "goalQuestion": "What is the goal of this app?",
-    "goalResponse": "Crowdsourcing risk map would build a more accurate picture of pandemic and help our family, friends, and vulnerable groups to stay safe by avoiding high risk areas. That would save lives, reduce the load of health care, improve the life quality of community, and flatten the pandemic curve.",
+    "goalResponse": "Crowdsourcing a live risk map can help build a more accurate picture of the spread of Covid-19 during the pandemic and help our family, friends, and vulnerable groups to stay safe by highlighting high-risk areas. Such a tool has the potential to to save lives, reduce the burden on healthcare providers, improve quality of life in the community, and flatten the pandemic curve.",
     "othersQuestion": "How do I report other members of my family?",
-    "othersResponse": "We are working on this issue. For now, you can use a different devices (phones, tablet, computer) for each member of your family."
+    "othersResponse": "We are working on this issue. For now, you can use a different device (phone, tablet, computer) for each member of your family."
   }
 }

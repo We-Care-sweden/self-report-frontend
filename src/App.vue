@@ -1,22 +1,26 @@
 <template>
   <div id="app">
-    <div class="banner">
-      <base-alert v-if="error !== null" type="success" :dismissible="true" style="width:60vw">
-        <h6>
-          Join
-          <strong>{{recordCounts !== 0 ? recordCounts:'' }}</strong> who self-reported their COVID status and help fighting against the new Coronavirus in Sweden.
-        </h6>
-        <h6>
-          Thank you for visiting covidmap.se. We are in the test phase and appreciate your comments and suggestions. Please write
-          <a
-            class="link"
-            href="https://docs.google.com/spreadsheets/d/1SDwzJai4Uq0D0nfZbeGlzw_Z2uenvETPaVKssPPgq_M/edit?usp=sharing"
-          >HERE</a>
-        </h6>
-      </base-alert>
-    </div>
     <router-view name="header"></router-view>
     <main>
+      <div class="wrapper">
+        <base-alert v-if="error !== null" type="success" :dismissible="true" class="banner">
+          <div class="row">
+            <h6>
+              {{$t('app.alert.sub1')}}
+              <strong>{{recordCounts !== 0 ? recordCounts:'' }}</strong>
+              {{$t('app.alert.sub2')}}
+            </h6>
+            <h6>
+              {{$t('app.alert.sub3')}}
+              <a
+                class="link"
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfijMdXb7L_-I0yNyyf-y2xGsKBAPRR-k71yk-Obls67GdKdQ/viewform?usp=sf_link"
+                target="_blank"
+              >HERE</a>
+            </h6>
+          </div>
+        </base-alert>
+      </div>
       <fade-transition origin="center" mode="out-in" :duration="250">
         <router-view />
       </fade-transition>
@@ -76,6 +80,19 @@ export default {
   color: steelblue;
 }
 h6 {
+  text-align: justify;
+}
+.wrapper {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 15vw;
+}
+.banner {
+  z-index: 1;
   text-align: justify;
 }
 </style>

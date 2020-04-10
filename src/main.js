@@ -44,7 +44,7 @@ if (locale === null) {
 
 import VueI18n from 'vue-i18n'
 
-let configuredLanguages = ['en']
+let configuredLanguages = ['sv', 'en']
 
 configuredLanguages.push(...process.env.VUE_APP_ADDITIONAL_LANGUAGES.split(','))
 configuredLanguages = uniq(configuredLanguages)
@@ -70,7 +70,7 @@ Vue.prototype.languages = languages
 Vue.use(VueI18n)
 const i18n = new VueI18n({
   locale: locale,
-  fallbackLocale: 'en',
+  fallbackLocale: 'sv',
   messages,
 })
 
