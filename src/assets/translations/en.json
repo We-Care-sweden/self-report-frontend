@@ -111,5 +111,15 @@
     "goalResponse": "Crowdsourcing a live risk map can help build a more accurate picture of the spread of Covid-19 during the pandemic and help our family, friends, and vulnerable groups to stay safe by highlighting high-risk areas. Such a tool has the potential to to save lives, reduce the burden on healthcare providers, improve quality of life in the community, and flatten the pandemic curve.",
     "othersQuestion": "How do I report other members of my family?",
     "othersResponse": "We are working on this issue. For now, you can use a different device (phone, tablet, computer) for each member of your family."
+  },
+  "team": {
+    "title": "Team",
+    "description": "Initiated by a Ph.D. student of KTH Royal Institute of Technology, Sina Molavipour, WeCare is a cross-platform, resilient, and privacy-preserving solution that combines contact, environmental and symptom risks into a single integrated risk value, and enables contact tracing. Launching COVIDmap was the first step toward the WeCare concept and solution. We are a team of epidemiologists, computer scientists, and developers from KTH Royal Institute of Technology, Stockholm University, and Mid Sweden University that want to help the current situation of the COVID-19 pandemic in our country, Sweden.",
+    "design": "Design Team",
+    "development": "Development team",
+    "business": "Business and marketing",
+    "datascience": "Data Science team",
+    "advisory": "Advisory board",
+    "communication": "Communication"
   }
 }

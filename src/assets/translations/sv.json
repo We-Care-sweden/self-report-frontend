@@ -9,10 +9,10 @@
     "yes": "Ja",
     "no": "Nej",
     "language": "Svenska",
-    "alert":{
-      "sub1" : "Gör som",
-      "sub2" : "andra har gjort, och rapportera huruvida du har drabbats av COVID-19.", 
-      "sub3" : "Vi är just nu i en tidig testfas. Du kan lämna kommentarer och förslag ..."
+    "alert": {
+      "sub1": "Gör som",
+      "sub2": "andra har gjort, och rapportera huruvida du har drabbats av COVID-19.",
+      "sub3": " Vi är just nu i en tidig testfas. Du kan lämna kommentarer och förslag ..."
     }
   },
   "renewReport": {
@@ -25,7 +25,7 @@
   },
   "report": {
     "title": "Rapportera",
-    "intro": "Hjälp oss att bekämpa det nya coronaviruset i Sverige genom att rapportera ditt eget hälsotillstånd. Den här webbplatsen illustrerar COVID-19-pandemins utveckling i hela landet med riskkartor baserade på enskilda människors rapporter. En riskkarta tillkommen genom crowdsourcing ger en mer exakt bild av pandemin och hjälper våra familjer, vänner och utsatta grupper att skydda sig genom att undvika områden där det är stor risk för smitta. På så vis räddar vi liv, minskar belastningen på hälsovården, förbättrar livskvaliteten i samhället och planar ut pandemi-kurvan.",
+    "intro": "Hjälp oss att bekämpa det nya coronaviruset i Sverige genom att rapportera ditt eget hälsotillstånd. Den här webbplatsen illustrerar COVID-19-pandemins utveckling i hela landet med riskkartor baserade på enskilda människors rapporter.",
     "how": "Hur mår du?",
     "healthy": "Jag är frisk",
     "sick": "Jag är sjuk",
@@ -39,8 +39,8 @@
     "symptomFever": "Feber (över 38 °C)",
     "symptomCough": "Hosta (torr)",
     "symptomVomit": "Kräkningar",
-    "symptomDyspnea": "Andningssvårigheter",
-    "symptomWeakness": "Svag",
+    "symptomDyspnea": "Andningsbesvär",
+    "symptomWeakness": "Matt",
     "symptomHeadache": "Huvudvärk",
     "symptomCold": "Förkyld",
     "symptomDiarrhoea": "Diarré",
@@ -111,5 +111,15 @@
     "goalResponse": "En riskkarta tillkommen genom crowdsourcing ger en mer exakt bild av pandemin och hjälper våra familjer, vänner och utsatta grupper att skydda sig genom att undvika områden där det är stor risk för smitta. På så vis räddar vi liv, minskar belastningen på hälsovården, förbättrar livskvaliteten i samhället och planar ut pandemi-kurvan.",
     "othersQuestion": "Hur rapporterar jag åt andra familjemedlemmar?",
     "othersResponse": "Vi arbetar med den här frågan. För närvarande kan du använda olika enheter (telefon, surfplatta, dator) för varje familjemedlem."
+  },
+  "team": {
+    "title": "Team",
+    "description": "WeCare, initierat av Sina Molavipour, doktorand vid KTH, är ett plattformsoberoende och robust verktyg som, utan att kränka enskildas personliga integritet, kombinerar kontakt-, miljö- och symptomrisker till ett enda sammantaget riskvärde, samt möjliggör kontaktspårning. Lanseringen av COVIDmap blev det första steget mot WeCare-konceptet och detta verktyg. Vi är ett team av epidemiologer, datavetare och utvecklare från KTH, Stockholms universitet och Mittuniversitetet som vill medverka till att underlätta vardagen för människor under den rådande COVID-19-pandemin i Sverige.",
+    "design": "Design",
+    "development": "Programutveckling",
+    "business": "Marknadsföring",
+    "datascience": "Dataanalys",
+    "advisory": "Rådgivande organ",
+    "communication": "Kommunikation"
   }
 }

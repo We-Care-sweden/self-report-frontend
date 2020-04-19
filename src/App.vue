@@ -7,7 +7,7 @@
           <div class="row">
             <h6>
               {{$t('app.alert.sub1')}}
-              <strong>{{recordCounts !== 0 ? recordCounts:'' }}</strong>
+              <strong>{{recordCounts !== 0 ? recordCounts:'7K' }}</strong>
               {{$t('app.alert.sub2')}}
             </h6>
             <h6>
@@ -42,7 +42,7 @@ export default {
     FadeTransition
   },
   mounted() {
-    this.getRecordCount().then();
+    // this.getRecordCount().then();
   },
   methods: {
     getRecordCount: function() {

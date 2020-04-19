@@ -9,20 +9,39 @@
         </div>
         <div class="container shape-container d-flex">
           <div class="col text-white">
-            <h1 class="display-3 text-white">{{ $t('about.title') }}</h1>
-            <p><span class="headline">{{ $t('about.headWho') }}</span> {{ $t('about.who') }}</p>
-            <p><span class="headline">{{ $t('about.headNeedYou') }}</span> {{ $t('about.needYou') }}</p>
-            <p><span class="headline">{{ $t('about.headData') }}</span> {{ $t('about.data') }}</p>
-            <p><span class="headline">{{ $t('about.headDataUpdate') }}</span> {{ $t('about.dataUpdate') }}</p>
-            <p><span class="headline">{{ $t('about.headPublicData') }}</span> {{ $t('about.publicData') }}</p>
-            <p><span class="headline">{{ $t('about.headDataCare') }}</span> {{ $t('about.dataCare') }}</p>
-            <p><span class="headline">{{ $t('about.headImprovement') }}</span> {{ $t('about.improvement') }} <a
-              href="mailto:covidmap.sweden@gmail.com" target="_blank"
-            >covidmap.sweden@gmail.com</a></p>
-            <p><span class="headline">{{ $t('about.supportHeader') }}</span> {{ $t('about.support') }} </p>
-            <p>{{ $t('about.source1') }} <a
-              href="https://github.com/ch-covid-19" target="_blank"
-            >{{$t('about.link')}}</a>{{ $t('about.source2') }} </p>
+            <h1 class="display-3 text-white">{{ $t('faq.title') }}</h1>
+            <!-- <p><span class="headline">{{ $t('about.headWho') }}</span> {{ $t('about.who') }}</p> -->
+            <!-- <p><span class="headline">{{ $t('about.headNeedYou') }}</span> {{ $t('about.needYou') }}</p> -->
+            <p>
+              <span class="headline">{{ $t('about.headData') }}</span>
+              {{ $t('about.data') }}
+            </p>
+            <p>
+              <span class="headline">{{ $t('about.headDataUpdate') }}</span>
+              {{ $t('about.dataUpdate') }}
+            </p>
+            <p>
+              <span class="headline">{{ $t('about.headPublicData') }}</span>
+              {{ $t('about.publicData') }}
+            </p>
+            <p>
+              <span class="headline">{{ $t('about.headDataCare') }}</span>
+              {{ $t('about.dataCare') }}
+            </p>
+            <p>
+              <span class="headline">{{ $t('about.headImprovement') }}</span>
+              {{ $t('about.improvement') }}
+              <a href="mailto:info@covidmap.se" target="_blank">info@covidmap.se</a>
+            </p>
+            <p>
+              <span class="headline">{{ $t('about.supportHeader') }}</span>
+              {{ $t('about.support') }}
+            </p>
+            <p>
+              {{ $t('about.source1') }}
+              <a href="https://github.com/ch-covid-19" target="_blank">{{$t('about.link')}}</a>
+              {{ $t('about.source2') }}
+            </p>
           </div>
         </div>
       </section>
@@ -31,17 +50,15 @@
 </template>
 
 <script>
-
-  export default {
-    name: 'about',
-    components: {},
-  }
-
+export default {
+  name: "about",
+  components: {}
+};
 </script>
 
 <style scoped>
-  .headline {
-    font-size: 1.1em;
-    font-weight: bolder;
-  }
+.headline {
+  font-size: 1.1em;
+  font-weight: bolder;
+}
 </style>

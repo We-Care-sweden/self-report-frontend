@@ -7,6 +7,7 @@ import Report from "./views/Report.vue";
 import Visualize from "./views/Visualize";
 import About from "./views/About";
 import Faq from "./views/Faq";
+import Team from "./views/Team";
 
 Vue.use(Router);
 
@@ -33,17 +34,17 @@ export default new Router({
       }
     },
     {
-      path: "/faq",
-      name: "faq",
+      path: "/team",
+      name: "team",
       components: {
         header: AppHeader,
-        default: Faq,
+        default: Team,
         footer: AppFooter
       }
     },
     {
-      path: "/about",
-      name: "about",
+      path: "/faq",
+      name: "faq",
       components: {
         header: AppHeader,
         default: About,

@@ -23,11 +23,11 @@
           <router-link class="nav-link" to="/visualize">{{ $t('visualize.title') }}</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/faq">{{ $t('faq.title') }}</router-link>
+          <router-link class="nav-link" to="/team">{{ $t('team.title') }}</router-link>
         </li>
 
         <li class="nav-item">
-          <router-link class="nav-link" to="/about">{{ $t('about.title') }}</router-link>
+          <router-link class="nav-link" to="/faq">{{ $t('faq.title') }}</router-link>
         </li>
       </ul>
 
