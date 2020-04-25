@@ -19,6 +19,84 @@
         "ifNotYou": "if it wasn't you."
     },
     "report": {
+        "question": "Question",
+        "start": {
+            "header": "Self-report your health condition to help stop the spread of the COVID-19",
+            "button-new-report": "Report symptoms",
+            "button-update-report": "Update my report"          
+        },
+        "question-1": {
+            "background-text": "Key Symptom",
+            "question": "How high is your body temperature?",
+            "option-1": "Under 38 C",
+            "option-2": "38-39.4 C",
+            "option-3": "Over 39.5 C"
+        },
+        "question-2": {
+            "background-text": "Key Symptom",
+            "question": "Have you recently developed a cough?",
+            "option-1": "No",
+            "option-2": "I’m coughing sometimes",
+            "option-3": "I’m coughing almost continuously",
+            "option-4": "I’m coughing often"
+        },
+        "question-3": {
+            "background-text": "Key Symptom",
+            "question": "Have you recently developed difficulty breathing or shortness of breath?",
+            "option-1": "No",
+            "option-2": "Yes, I feel breathless during light exertion but not atrest",
+            "option-3": "Yes, I feel a little breathless while resting",
+            "option-3": "Yes, I feel breathless all the time"
+        },
+        "question-4": {
+            "background-text": "Key Symptom",
+            "question": "How are your general energy levels?",
+            "option-1": "As normal",
+            "option-2": "I’m tired but up and about",
+            "option-3": "I’m mostly in bed but can manage to get up for short periods",
+            "option-4": "I’m in bed but manage to go to the toilet ",
+            "option-5": "I can’t get out of bed"
+        },
+        "question-5": {
+            "background-text": "Exposure",
+            "question": "Have you had close contact with someone infected with coronavirus (covid-19)?",
+            "option-1": "No",
+            "option-2": "Yes",
+            "option-3": "Don’t know"
+        },
+        "question-6": {
+            "background-text": "Comorbidities",
+            "question": "Do you have any of the following ongoing illnesses?",
+            "option-1": "Nothing",
+            "option-2": "Disease affecting the respiratory muscles",
+            "option-3": "Neurological",
+            "option-4": "Diabetes",
+            "option-5": "Cancer",
+            "option-6": "Pulmonary disease",
+            "option-7": "Chronic renal failure",
+            "option-8": "Cardiovascular disease",
+            "option-9": "Hypertension"
+        },
+        "question-7": {
+            "background-text": "Risk Factors",
+            "question": "Do you have a weakened immune System?",
+            "help": "For example, do you medicate with cytostatic drugs, cortisone tablets, autoimmune disease drugs such as arthritis or the like?   Have you ever had an organ transplant, had the spleen removed, have untreated HIV or other conditions that impairthe immune system?",
+            "option-1": "No",
+            "option-2": "Yes"
+        },
+        "question-8": {
+            "background-text": "Risk Factors",
+            "question": "Please indicate your age:",
+            "option-1": "Under 60",
+            "option-2": "60 – 69",
+            "option-3": "70 – 79",
+            "option-4": "Above 80"
+        },
+        "results": {
+            "header": "Results",
+            "result": "You have indicated that you haveone or more underlying health problems that may put you at greater risk of severe disease if you become infected with the new coronavirus. Ensure you keep up your regular medications to control your illness and follow social distancing recommendations.Link to recommednations for risk groups:"
+        },
+
         "title": "Report",
         "intro": "Help fighting against the new Coronavirus in Switzerland by self-reporting your health status.",
         "how": "How are you doing?",
