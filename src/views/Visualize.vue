@@ -107,7 +107,7 @@
           {
             id: 'healthy',
             label: 'visualize.layerHealthy',
-            value: (entry) => entry.healthy,
+            value: (entry) => entry.total_healthy,
             sizeRatio: 1,
             color: 'blue',
             buttonColor: 'info',
@@ -117,7 +117,7 @@
           {
             id: 'sick_guess_no_corona',
             label: 'visualize.layerSickNoCovid',
-            value: (entry) => entry.sick_guess_no_corona,
+            value: (entry) => entry.total_sick_guess_no_corona,
             sizeRatio: 1,
             color: 'blue',
             buttonColor: 'info',
@@ -127,7 +127,7 @@
           {
             id: 'sick_guess_corona',
             label: 'visualize.layerSickCovid',
-            value: (entry) => entry.sick_guess_corona,
+            value: (entry) => entry.total_sick_guess_corona,
             sizeRatio: 1,
             color: 'orangered',
             buttonColor: 'warning',
@@ -137,7 +137,7 @@
           {
             id: 'sick_corona_confirmed',
             label: 'visualize.layerSickCovidConfirmed',
-            value: (entry) => entry.sick_corona_confirmed,
+            value: (entry) => entry.total_sick_corona_confirmed,
             sizeRatio: 1,
             color: 'red',
             buttonColor: 'danger',
@@ -147,7 +147,7 @@
           {
             id: 'recovered_not_confirmed',
             label: 'visualize.layerRecovered',
-            value: (entry) => entry.recovered_not_confirmed,
+            value: (entry) => entry.total_recovered_not_confirmed,
             sizeRatio: 1,
             color: 'green',
             buttonColor: 'success',
@@ -157,7 +157,7 @@
           {
             id: 'recovered_confirmed',
             label: 'visualize.layerRecoveredConfirmed',
-            value: (entry) => entry.recovered_confirmed,
+            value: (entry) => entry.total_recovered_confirmed,
             sizeRatio: 1,
             color: 'green',
             buttonColor: 'success',
@@ -190,7 +190,8 @@
     },
     computed: {
       dataSourceUrl() {
-        return this.showMerged ? `${this.dataSourceBaseUrl}/merge-all-days.csv` : `${this.dataSourceBaseUrl}/daily-reports/ch-covid-19-${this.dateFilter}.csv`;
+        // 3.csv
+        return this.showMerged ? `${this.dataSourceBaseUrl}/merge-all-days3.csv` : `${this.dataSourceBaseUrl}/daily-reports/ch-covid-19-${this.dateFilter}.csv`;
       },
     },
     methods: {
@@ -378,7 +379,7 @@
             continue;
           }
 
-          const geocoding = this.geocoding[entry.postal_code];
+          const geocoding = this.geocoding[entry.npa_plz];
 
           if (!geocoding) {
             ignored++;
@@ -389,15 +390,15 @@
           const places = geocoding.places.filter(p => isNaN(p));
           switch (places.length) {
             case 0:
-              popup += `<h4>${entry.postal_code}</h4>`;
+              popup += `<h4>${entry.npa_plz}</h4>`;
               break;
 
             case 1:
-              popup += `<h4>${entry.postal_code} ${places[0]}</h4>`;
+              popup += `<h4>${entry.npa_plz} ${places[0]}</h4>`;
               break;
 
             default:
-              popup += `<h4>${entry.postal_code}</h4>`;
+              popup += `<h4>${entry.npa_plz}</h4>`;
               popup += `<ul>`;
               for (const place of places) {
                 popup += `<li><b>${place}</b></li>`;
