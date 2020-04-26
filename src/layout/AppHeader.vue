@@ -18,24 +18,24 @@
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
 
         <li class="nav-item">
-          <router-link class="nav-link" to="/">
+          <router-link class="nav-link dark" to="/">
             {{ $t('report.title') }}
           </router-link>
         </li>
 
         <li class="nav-item">
-          <router-link class="nav-link" to="/visualize">
+          <router-link class="nav-link dark" to="/visualize">
             {{ $t('visualize.title') }}
           </router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link" to="/faq">
+          <router-link class="nav-link dark" to="/faq">
             {{ $t('faq.title') }}
           </router-link>
         </li>
 
         <li class="nav-item">
-          <router-link class="nav-link" to="/about">
+          <router-link class="nav-link dark" to="/about">
             {{ $t('about.title') }}
           </router-link>
         </li>

@@ -51,7 +51,7 @@
       position: relative;
       padding-top: 6rem;
       padding-bottom: 0rem;
-      height: 100%;
+      height: 100vh;
     }
 
     &.shape-skew {
@@ -103,6 +103,10 @@
     :nth-child(5) {
       background: shapes-primary-color("span-5-bg");
     }
+  }
+
+  .section-background {
+    background: linear-gradient(180deg, #FFFFFF -82.62%, #E1D5FF 114.7%);
   }
 
   .shape-default {

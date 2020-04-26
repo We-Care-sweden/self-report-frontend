@@ -4,15 +4,15 @@
     <div class="position-relative">
       <!-- shape Hero -->
       <section class="section-shaped my-0">
-        <div class="shape shape-style-1 shape-default">
+        <div class="shape section-background">
           <span></span>
           <span></span>
         </div>
         <div class="container shape-container d-flex">
           <div class="col px-0">
             <div class="row my-3" v-show="currentQuestion==0">
-              <div class="col-lg-6">
-                <h1 class="display-3 text-white">{{ $t('report.start.header') }}</h1>
+              <div class="col-lg-8">
+                <h1 class="display-3">{{ $t('report.start.header') }}</h1>
 
                 <div class="btn-wrapper">
                   <base-button class="my-2 my-sm-2"
@@ -33,7 +33,7 @@
 
             <div class="row my-3" v-show="currentQuestion==1">
               <div class="col-lg-8">
-                <h1 class="display-3 text-white">{{ $t('report.question') }} 1/8</h1>
+                <h1 class="display-3">{{ $t('report.question') }} 1/8</h1>
                 <p>
                   {{ $t('report.question-1.question') }}
                 </p>
@@ -79,7 +79,7 @@
 
             <div class="row my-3" v-show="currentQuestion==2">
               <div class="col-lg-8">
-                <h1 class="display-3 text-white">{{ $t('report.question') }} 2/8</h1>
+                <h1 class="display-3">{{ $t('report.question') }} 2/8</h1>
                 <p>
                   {{ $t('report.question-2.question') }}
                 </p>
@@ -131,7 +131,7 @@
 
             <div class="row my-3" v-show="currentQuestion==3">
               <div class="col-lg-8">
-                <h1 class="display-3 text-white">{{ $t('report.question') }} 3/8</h1>
+                <h1 class="display-3">{{ $t('report.question') }} 3/8</h1>
                 <p>
                   {{ $t('report.question-3.question') }}
                 </p>
@@ -183,7 +183,7 @@
 
             <div class="row my-3" v-show="currentQuestion==4">
               <div class="col-lg-8">
-                <h1 class="display-3 text-white">{{ $t('report.question') }} 4/8</h1>
+                <h1 class="display-3">{{ $t('report.question') }} 4/8</h1>
                 <p>
                   {{ $t('report.question-4.question') }}
                 </p>
@@ -241,7 +241,7 @@
 
             <div class="row my-3" v-show="currentQuestion==5">
               <div class="col-lg-8">
-                <h1 class="display-3 text-white">{{ $t('report.question') }} 5/8</h1>
+                <h1 class="display-3">{{ $t('report.question') }} 5/8</h1>
                 <p>
                   {{ $t('report.question-5.question') }}
                 </p>
@@ -287,7 +287,7 @@
 
             <div class="row my-3" v-show="currentQuestion==6">
               <div class="col-lg-8">
-                <h1 class="display-3 text-white">{{ $t('report.question') }} 6/8</h1>
+                <h1 class="display-3">{{ $t('report.question') }} 6/8</h1>
                 <p>
                   {{ $t('report.question-6.question') }}
                 </p>
@@ -369,7 +369,7 @@
             
             <div class="row my-3" v-show="currentQuestion==7">
               <div class="col-lg-8">
-                <h1 class="display-3 text-white">{{ $t('report.question') }} 7/8</h1>
+                <h1 class="display-3">{{ $t('report.question') }} 7/8</h1>
                 <p>
                   {{ $t('report.question-7.question') }}
                 </p>
@@ -412,7 +412,7 @@
 
             <div class="row my-3" v-show="currentQuestion==8">
               <div class="col-lg-8">
-                <h1 class="display-3 text-white">{{ $t('report.question') }} 8/8</h1>
+                <h1 class="display-3">{{ $t('report.question') }} 8/8</h1>
                 <p>
                   {{ $t('report.question-8.question') }}
                 </p>
